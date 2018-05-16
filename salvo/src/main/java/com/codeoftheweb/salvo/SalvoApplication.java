@@ -15,7 +15,9 @@ public class SalvoApplication {
 
 
 	@Bean
-	public CommandLineRunner initData(PlayerRepository playerRepository, GameRepository gameRepository, GamePlayerRepository gamePlayerRepository) {
+	public CommandLineRunner initData(PlayerRepository playerRepository,
+                                      GameRepository gameRepository,
+                                      GamePlayerRepository gamePlayerRepository) {
 
 
 		return (args) -> {
