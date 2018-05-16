@@ -19,12 +19,15 @@ public class SalvoRestController {
 
     @Autowired
     private GameRepository repo;
+
     private PlayerRepository repos;
 
     @RequestMapping("/players")
     public List<Player> getAllp() {
         return repos.findAll();
     }
+
+    //Try something
 
     @GetMapping("/games")
     public List<Game> getAllg() {
