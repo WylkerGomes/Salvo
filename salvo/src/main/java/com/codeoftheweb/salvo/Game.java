@@ -1,10 +1,8 @@
 package com.codeoftheweb.salvo;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 
 @Entity
@@ -13,6 +11,11 @@ public class Game {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private long id;
+
+    @OneToMany(mappedBy="Game", fetch=FetchType.EAGER)
+    Set<GamePlayer> gamePlayers;
+
+
     private Date createDate;
 
     public Game(){
@@ -22,6 +25,10 @@ public class Game {
 
     public long getId() {
         return id;
+    }
+
+    public Set<GamePlayer> getGamePlayers() {
+        return gamePlayers;
     }
 
     public void setId(long id) {

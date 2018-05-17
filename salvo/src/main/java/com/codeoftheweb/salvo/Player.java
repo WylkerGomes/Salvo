@@ -1,12 +1,7 @@
 package com.codeoftheweb.salvo;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Player {
@@ -15,9 +10,36 @@ public class Player {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private long id;
 
+
+    /////////////////////////////////////////////////////
+
+
+    @OneToMany(mappedBy="Player", fetch=FetchType.EAGER)
+    Set<GamePlayer> gamePlayers;
+
+
+//    public void addPlayer( Player gamers) {
+//
+//        gamers.setUsername("");
+//        players.add(gamers);
+//    }
+
+
+    //////////////////////////////////////////////////////
+
+
+
     private String firstName;
     private String lastName;
     private String username;
+
+    public long getId() {
+        return id;
+    }
+
+    public Set<GamePlayer> getGamePlayers() {
+        return gamePlayers;
+    }
 
     public  Player(){}
 
