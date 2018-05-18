@@ -1,4 +1,18 @@
 
+var data = url ("http://localhost:8080/api/games");
+
+
+$.getJSON( data, function( data ) {
+
+
+});
+
+
+
+
+
+
+
 $(function() {
 
     // display text in the output area

@@ -17,6 +17,7 @@ import java.util.stream.Collectors;
 
 
 import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.toSet;
 
 @RestController
 @RequestMapping("/api")
@@ -48,29 +49,38 @@ public class SalvoRestController {
         myMap.put("date", game.getCreateDate());
         myMap.put("gameplayer", createGamePlayersMap(game));
         //myMap.put ("gamePlayer_id", createGamePlayersMap(game));
+//        myMap.put("palyersId", createPlayersMaps() );
 
 
         return myMap;
     }
 
-    private List <Object> createGamePlayersMap(Game game){ // this is to get the gameplay
+    public List <Object> createGamePlayersMap(Game game){ // this is to get the gameplay
      return game.getGamePlayers().stream().map(gamePlayer ->{
          Map<String, Object> dto = new HashMap<>();
+         dto.put("id", gamePlayer.getId());
+         dto.put("player", getPlayerInfo(gamePlayer.getPlayer()));
          return dto;
          }).collect(Collectors.toList());
     }
 
 
-    private  List<Object> createPlayersMap (Player player) {
-        return player.getId().stream().map(Player -> {
-            Map<String, Object> dtos = new HashMap<>();
-            return dtos;
-        }).collect(Collectors.toList());
+//    public   List<Object> createPlayersMap (Player player) {
+//        return player.getId().stream().map(Player -> {
+//            Map<String, Long> dtos = new HashMap<>();
+//            return dtos;
+//        }).collect(Collectors.toList());
+//
+//    }
 
+public Map<String, Object> getPlayerInfo (Player player){// is to get just one player
 
-    }
+        Map<String, Object> player_dto = new HashMap<>();
+            player_dto.put("id", player.getId());
+            player_dto.put("Username", player.getUsername());
 
-
+            return player_dto;
+}
 
 
 
