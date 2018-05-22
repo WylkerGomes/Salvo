@@ -20,18 +20,25 @@ public class SalvoApplication {
                                       GamePlayerRepository gamePlayerRepository) {
 
 
+
+        Player p1 = new Player("RUI", "SAO", "TEJO");
+        Player p2 = new Player("SILVA", "ECOLA", "SALVADOR");
+        Player p3 = new Player("TANIA", "SCOLA", "DOR");
+        Player p4 = new Player("JOANA", "ESLA", "ALVA");
+        Player p5 = new Player("ILVA", "ELA", "VADOR");
+        Player p6 = new Player("IVA", "ESCOL", "SALADO");
+        Player p7 = new Player("SA", "ESCO", "ADOR");
+        Player p8 = new Player("SILA", "COLA", "SAL");
+        Player p9 = new Player("ILA", "SOLA", "LADOR");
+        Player p10 = new Player("SIA", "ESOA", "SAVA");
+
+
+
+
+
 		return (args) -> {
 			// save players
-            Player p1 = new Player();
-            Player p2 = new Player();
-            Player p3 = new Player();
-            Player p4 = new Player();
-            Player p5 = new Player();
-            Player p6 = new Player();
-            Player p7 = new Player();
-            Player p8 = new Player();
-            Player p9 = new Player();
-            Player p10 = new Player();
+
 
 			playerRepository.save(p1);
 			playerRepository.save(p2);
