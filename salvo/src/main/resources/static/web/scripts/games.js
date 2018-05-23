@@ -8,7 +8,6 @@ $(document).ready(function(){ // this is to show the data in your document. it c
 
             var gamesInfo = data;
 
-
             players(gamesInfo);
 
 console.log(gamesInfo);
