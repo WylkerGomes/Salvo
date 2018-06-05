@@ -48,9 +48,6 @@ public class SalvoRestController {
         myMap.put("gameid", game.getId());
         myMap.put("date", game.getCreateDate());
         myMap.put("gameplayer", createGamePlayersMap(game));
-        //myMap.put ("gamePlayer_id", createGamePlayersMap(game));
-//        myMap.put("palyersId", createPlayersMaps() );
-
 
         return myMap;
     }
@@ -63,15 +60,6 @@ public class SalvoRestController {
          return dto;
          }).collect(Collectors.toList());
     }
-
-
-//    public   List<Object> createPlayersMap (Player player) {
-//        return player.getId().stream().map(Player -> {
-//            Map<String, Long> dtos = new HashMap<>();
-//            return dtos;
-//        }).collect(Collectors.toList());
-//
-//    }
 
 public Map<String, Object> getPlayerInfo (Player player){// is to get just one player
 
@@ -93,24 +81,6 @@ public Map<String, Object> getPlayerInfo (Player player){// is to get just one p
     public String sayHello(){
         return "Hello";
     }
-
-//    @GetMapping("/games")
-//    public Set<Game> getGame (List<Game>games) {
-//        return repo.stream().map(b -> b.getType()).collect(toSet());
-//
-//    }
-
-
-//private Map<String, Player> allPlayers (Player player){
-//
-//      Map<String, Player> gamers = new LinkedHashMap<String, Player>();
-//      gamers.put("FirstName", player.getFirstName());
-//      gamers.put("LastName", player.getLastName());
-//      gamers.put("Username", player.getUsername());
-//      return gamers;
-//
-//
-//}
 
 }
 
