@@ -12,14 +12,18 @@ public class Ship {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private long id;
 
-    @ElementCollection
-    @Column(name = "locations")
-    private List<String> locations;
+//    @ElementCollection
+//    @Column(name = "locations")
+//    private List<String> locations;
 
     @JsonIgnore
     @ManyToOne (fetch = FetchType.EAGER)
     @JoinColumn(name = "gamePlayerId")
     private GamePlayer gamePlayer;
+
+//    public List<String> getLocations() {
+//        return locations;
+//    }
 
     public String getType() {
         return type;
@@ -49,4 +53,14 @@ public class Ship {
     public void setGamePlayer(GamePlayer gamePlayer) {
         this.gamePlayer = gamePlayer;
     }
+
+
+    @ElementCollection
+    @Column(name = "locations")
+    private List<String> locations;
+
+    public List<String> getLocations() {
+        return locations;
+    }
+
 }

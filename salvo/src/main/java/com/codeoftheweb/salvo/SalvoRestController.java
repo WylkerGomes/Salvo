@@ -85,18 +85,14 @@ public Map<String, Object> OneGame (@PathVariable long nn){
         if (selectedGP == null){
             soloGame.put("Any gp with this id", nn);
         }else {
+
             soloGame.put("id", selectedGP.getPlayer().getId());
+            soloGame.put("date", selectedGP.getGame().getCreateDate());
             soloGame.put("Username", selectedGP.getPlayer().getUsername());
             soloGame.put("Ships", selectedGP.getFleet());
 
+
         }
-
-
-//    soloGame.put("id", player.getId());
-//    soloGame.put("Username", player.getUsername());
-//    soloGame.put("Ships", ship.getType());
-
-
 
         return soloGame;
 }

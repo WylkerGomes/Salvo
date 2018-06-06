@@ -5,6 +5,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.Arrays;
+import java.util.HashSet;
+
 @SpringBootApplication
 public class SalvoApplication {
 
@@ -67,42 +70,56 @@ public class SalvoApplication {
 
 
 			GamePlayer gp1 = new GamePlayer( p1, g1 );
+            GamePlayer gp2 = new GamePlayer( p2, g1 );
+            GamePlayer gp3 = new GamePlayer( p3, g2 );
+            GamePlayer gp4 = new GamePlayer( p4, g2 );
+            GamePlayer gp5 = new GamePlayer( p5, g3 );
+            GamePlayer gp6 = new GamePlayer( p6, g3 );
+            GamePlayer gp7 = new GamePlayer( p7, g4 );
+            GamePlayer gp8 = new GamePlayer( p8, g4 );
+            GamePlayer gp9 = new GamePlayer( p9, g5 );
+            GamePlayer gp10 = new GamePlayer( p10, g5 );
+
+
 
 			gamePlayerRepository.save (gp1);
+            gamePlayerRepository.save (gp2);
+            gamePlayerRepository.save (gp3);
+            gamePlayerRepository.save (gp4);
+            gamePlayerRepository.save (gp5);
+            gamePlayerRepository.save (gp6);
+            gamePlayerRepository.save (gp7);
+            gamePlayerRepository.save (gp8);
+            gamePlayerRepository.save (gp9);
+            gamePlayerRepository.save (gp10);
 
-			gamePlayerRepository.save (new GamePlayer( p2, g1 ));
-            gamePlayerRepository.save (new GamePlayer( p3, g2 ));
-            gamePlayerRepository.save (new GamePlayer( p4, g2 ));
-            gamePlayerRepository.save (new GamePlayer( p5, g3 ));
-            gamePlayerRepository.save (new GamePlayer( p6, g3 ));
-            gamePlayerRepository.save (new GamePlayer( p7, g4 ));
-            gamePlayerRepository.save (new GamePlayer( p8, g4 ));
-            gamePlayerRepository.save (new GamePlayer( p9, g5 ));
-            gamePlayerRepository.save (new GamePlayer( p10, g5 ));
 
-            Ship s1 = new Ship("destroyer");
-            Ship s2 = new Ship("destr");
-            Ship s3 = new Ship("dvhb");
-            Ship s4 = new Ship("hdgsdbs");
-            Ship s5 = new Ship("jdjdbjn");
+            Ship s1 = new Ship("Destroyer");// SHIPS FOR PLAYER NUMBER 1
+            Ship s2 = new Ship("Bombardier");
+            Ship s3 = new Ship("AmmunitionShip");
+            Ship s4 = new Ship("Battleship");
+            Ship s5 = new Ship("PetrolBoat");
 
-            gp1.addShip(s1);
+            Ship s6 = new Ship("Destroyer");// SHIPS FOR PLAYER NUMBER 2
+            Ship s7 = new Ship("Bombardier");
+            Ship s8 = new Ship("AmmunitionShip");
+            Ship s9 = new Ship("Battleship");
+            Ship s10 = new Ship("PetrolBoat");
+
+            gp1.addShips(new HashSet<>(Arrays.asList(new Ship[]{s1,s2,s3,s4,s5}))); // just show one player, his game only
+            gp2.addShips(new HashSet<>(Arrays.asList(new Ship[]{s6,s7,s8,s9,s10})));
+
 
             shipRepository.save(s1);
             shipRepository.save(s2);
             shipRepository.save(s3);
             shipRepository.save(s4);
             shipRepository.save(s5);
-
-
-
-
-
-
-
-
-
-
+            shipRepository.save(s6);
+            shipRepository.save(s7);
+            shipRepository.save(s8);
+            shipRepository.save(s9);
+            shipRepository.save(s10);
 
 
 
