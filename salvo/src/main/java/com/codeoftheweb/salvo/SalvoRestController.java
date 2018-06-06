@@ -2,9 +2,11 @@ package com.codeoftheweb.salvo;
 
 
 import com.sun.javafx.collections.MappingChange;
+import org.hibernate.mapping.OneToMany;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import javax.persistence.FetchType;
@@ -28,6 +30,9 @@ public class SalvoRestController {
 
     @Autowired
     private PlayerRepository repos;
+
+    @Autowired
+    private GamePlayerRepository reposi;
 
     @RequestMapping("/players")
     public List<Player> getAllp() {
@@ -71,7 +76,30 @@ public Map<String, Object> getPlayerInfo (Player player){// is to get just one p
 }
 
 
+@RequestMapping("/game_view/{nn}")
+public Map<String, Object> OneGame (@PathVariable long nn){
+        GamePlayer selectedGP = reposi.findAll().stream().filter(h -> h.getId() == nn).findFirst().orElse(null);
 
+        Map<String, Object> soloGame = new LinkedHashMap<>();
+
+        if (selectedGP == null){
+            soloGame.put("Any gp with this id", nn);
+        }else {
+            soloGame.put("id", selectedGP.getPlayer().getId());
+            soloGame.put("Username", selectedGP.getPlayer().getUsername());
+            soloGame.put("Ships", selectedGP.getFleet());
+
+        }
+
+
+//    soloGame.put("id", player.getId());
+//    soloGame.put("Username", player.getUsername());
+//    soloGame.put("Ships", ship.getType());
+
+
+
+        return soloGame;
+}
 
 
 

@@ -66,7 +66,10 @@ public class SalvoApplication {
 			gameRepository.save(g5);
 
 
-			gamePlayerRepository.save (new GamePlayer( p1, g1 ));
+			GamePlayer gp1 = new GamePlayer( p1, g1 );
+
+			gamePlayerRepository.save (gp1);
+
 			gamePlayerRepository.save (new GamePlayer( p2, g1 ));
             gamePlayerRepository.save (new GamePlayer( p3, g2 ));
             gamePlayerRepository.save (new GamePlayer( p4, g2 ));
@@ -77,8 +80,19 @@ public class SalvoApplication {
             gamePlayerRepository.save (new GamePlayer( p9, g5 ));
             gamePlayerRepository.save (new GamePlayer( p10, g5 ));
 
-            Ship s1 = new Ship();
+            Ship s1 = new Ship("destroyer");
+            Ship s2 = new Ship("destr");
+            Ship s3 = new Ship("dvhb");
+            Ship s4 = new Ship("hdgsdbs");
+            Ship s5 = new Ship("jdjdbjn");
+
+            gp1.addShip(s1);
+
             shipRepository.save(s1);
+            shipRepository.save(s2);
+            shipRepository.save(s3);
+            shipRepository.save(s4);
+            shipRepository.save(s5);
 
 
 
