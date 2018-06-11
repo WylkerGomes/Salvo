@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 
 @SpringBootApplication
 public class SalvoApplication {
@@ -93,18 +94,27 @@ public class SalvoApplication {
             gamePlayerRepository.save (gp9);
             gamePlayerRepository.save (gp10);
 
+            List<String> loc1 = Arrays.asList("H2","H3", "H4");
+            List<String> loc2 = Arrays.asList("HE1", "F1", "G1");
+            List<String> loc3 = Arrays.asList("B4", "B5");
+            List<String> loc4 = Arrays.asList("B5", "C5", "D5");
+            List<String> loc5 = Arrays.asList("F1", "F2");
+            List<String> loc6 = Arrays.asList("A2", "A3", "A4");
+            List<String> loc7 = Arrays.asList("C6", "C7");
+            List<String> loc8 = Arrays.asList("G6", "H6");
 
-            Ship s1 = new Ship("Destroyer");// SHIPS FOR PLAYER NUMBER 1
-            Ship s2 = new Ship("Bombardier");
-            Ship s3 = new Ship("AmmunitionShip");
-            Ship s4 = new Ship("Battleship");
-            Ship s5 = new Ship("PetrolBoat");
 
-            Ship s6 = new Ship("Destroyer");// SHIPS FOR PLAYER NUMBER 2
-            Ship s7 = new Ship("Bombardier");
-            Ship s8 = new Ship("AmmunitionShip");
-            Ship s9 = new Ship("Battleship");
-            Ship s10 = new Ship("PetrolBoat");
+            Ship s1 = new Ship("Destroyer", loc1);// SHIPS FOR PLAYER NUMBER 1
+            Ship s2 = new Ship("Bombardier", loc2);
+            Ship s3 = new Ship("AmmunitionShip", loc3);
+            Ship s4 = new Ship("Battleship", loc4);
+            Ship s5 = new Ship("PetrolBoat", loc5);
+
+            Ship s6 = new Ship("Destroyer", loc6);// SHIPS FOR PLAYER NUMBER 2
+            Ship s7 = new Ship("Bombardier", loc7);
+            Ship s8 = new Ship("AmmunitionShip", loc8);
+            Ship s9 = new Ship("Battleship", loc2);
+            Ship s10 = new Ship("PetrolBoat", loc3);
 
             gp1.addShips(new HashSet<>(Arrays.asList(new Ship[]{s1,s2,s3,s4,s5}))); // just show one player, his game only
             gp2.addShips(new HashSet<>(Arrays.asList(new Ship[]{s6,s7,s8,s9,s10})));
@@ -120,6 +130,18 @@ public class SalvoApplication {
             shipRepository.save(s8);
             shipRepository.save(s9);
             shipRepository.save(s10);
+
+
+
+//            List<String> loc9 = Arrays.asList("");
+//            List<String> loc10 = Arrays.asList("");
+
+
+
+
+
+
+
 
 
 

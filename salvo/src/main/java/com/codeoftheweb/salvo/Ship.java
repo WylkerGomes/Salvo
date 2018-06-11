@@ -37,7 +37,9 @@ public class Ship {
 
     public  Ship(){}
 
-    public  Ship(String inputType){
+    public  Ship(String inputType, List<String> locations){
+
+        this.locations = locations;
         this.type = inputType;
     }
 
